@@ -30,10 +30,31 @@ class Model {
     // função para gerar select de determinado modelo
     public static function getSelect($filters = [],$columns = '*'){
         $sql = "SELECT ${columns} FROM "
-        . static::$tableName;
+        . static::$tableName
+        . static::getFilters($filters);
         return $sql;
     }
 
-    
+    private static function getFilters($filters){
+        $sql = '';
+        if(count($filters) > 0){
+            // Essa técnica serve para que toda consulta possua WHERE para conseguir colocar o AND
+            $sql .= " WHERE 1 = 1"; // Essa condição não tem impacto pois retorna o valor que é TRUE
+            foreach($filters as $column => $value){
+            $sql .= " AND ${column} = " . static::getFormatedValue($value);
+            }
+        }
+        return $sql;
+    }
 
+    // tratamento para identificar tipo certo para a query do SQL
+    private static function getFormatedValue($value){
+        if(is_null($value)){
+            return "null";
+        } elseif(gettype($value) === 'string'){
+            return "'${value}'";
+        } else {
+            return $value;
+        }
+    }
 }
