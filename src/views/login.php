@@ -25,6 +25,7 @@
                 <i class="icofont-runner-alt-1 ml-2 text-white"></i>
             </div>
             <div class="card-body">
+                <?php include(TEMPLATE_PATH . '/messages.php') ?>
                 <div class="form-group">
                     <label for="email">E-mail</label>                  <!-- Aqui é carregado o parametro que vem do controller, através da função loadView -->
                     <input type="email" name="email" id="email" value="<?= $email ?>"
