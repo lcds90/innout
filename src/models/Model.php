@@ -28,6 +28,13 @@ class Model {
     }
 
     // função para retornar valores vindo de função que gera modelo de SQL
+    public static function getOne($filters = [], $columns = '*'){
+        $class = get_called_class();
+        $result = static::getResultSetFromSelect($filters, $columns);
+        return $result ? new $class($result->fetch_assoc()) : null;
+    }
+
+    // função para retornar valores vindo de função que gera modelo de SQL
     public static function get($filters = [], $columns = '*'){
         $objects = [];
         $result = static::getResultSetFromSelect($filters, $columns);

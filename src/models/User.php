@@ -1,7 +1,4 @@
 <?php 
-
-require_once(realpath(MODEL_PATH . '/Model.php'));
-
 class User extends Model {
     // Extendendo de Model, aqui é especificação de tabela e suas colunas
     protected static $tableName = 'users';
