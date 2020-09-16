@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+    <!-- Post será submetido na própria página, carregado no Controller -->
     <form class="form-login" action="#" method="post">
         <div class="login-card card">
             <div class="card-header bg-dark">
@@ -24,12 +26,13 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Informe o e-mail" autofocus="true" autocomplete="off">
+                    <label for="email">E-mail</label>                  <!-- Aqui é carregado o parametro que vem do controller, através da função loadView -->
+                    <input type="email" name="email" id="email" value="<?= $email ?>"
+                    class="form-control" placeholder="Informe o e-mail" autofocus="true" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="email" name="password" id="password" class="form-control" placeholder="Informe a senha" autocomplete="off">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Informe a senha" autocomplete="off">
                 </div>
             </div>
             <div class="card-footer">
