@@ -66,7 +66,7 @@ class Model {
             // Essa técnica serve para que toda consulta possua WHERE para conseguir colocar o AND
             $sql .= " WHERE 1 = 1"; // Essa condição não tem impacto pois retorna o valor que é TRUE
             foreach($filters as $column => $value){
-            $sql .= " AND ${column} = " . static::getFormatedValue($value);
+            $sql .= " AND {$column} = " . static::getFormatedValue($value);
             }
         }
         return $sql;

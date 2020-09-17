@@ -3,7 +3,7 @@
 /* Objetivo do loader, será criar funções para carregar as classes  */
 
 function loadModel($modelName){
-    require_once(MODEL_PATH . "/${modelName}.php");
+    require_once(MODEL_PATH . "/{$modelName}.php");
 }
 
 
@@ -16,7 +16,7 @@ function loadView($viewName, $params = array()){
             }
         }
     }
-    require_once(VIEW_PATH . "/${viewName}.php");
+    require_once(VIEW_PATH . "/{$viewName}.php");
 }
 
 // função para carregar templates 
@@ -28,5 +28,6 @@ function loadTemplateView($viewName, $params = array()){
             }
         }
     }
-    require_once(VIEW_PATH . "/${viewName}.php");
+    require_once(TEMPLATE_PATH . "/.php");
+    require_once(VIEW_PATH . "/{$viewName}.php");
 }
