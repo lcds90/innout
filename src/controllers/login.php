@@ -20,6 +20,6 @@ if(count($_POST) > 0){
 
 /* Função responsável por guardar em parametros que são passados
 tudo que estava dentro de post foi passado como parametro em view
-Além dos dados do POST, está concatenado a chave de exception, disponivel dentro da view  */ 
+Além dos dados do POST, está concatenado a chave de exception, disponivel dentro da  */ 
 loadView('login', $_POST + ['exception' => $exception]);
 

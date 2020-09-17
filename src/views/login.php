@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -29,11 +30,20 @@
                 <div class="form-group">
                     <label for="email">E-mail</label>                  <!-- Aqui é carregado o parametro que vem do controller, através da função loadView -->
                     <input type="email" name="email" id="email" value="<?= $email ?>"
-                    class="form-control" placeholder="Informe o e-mail" autofocus="true" autocomplete="off">
+                    class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
+                    placeholder="Informe o e-mail" autofocus="true" autocomplete="off">
+                    <div class="invalid-feedback">
+                    <?= $errors['email'] ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Informe a senha" autocomplete="off">
+                    <input type="password" name="password" id="password"
+                    class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>"
+                    placeholder="Informe a senha" autocomplete="off">
+                    <div class="invalid-feedback">
+                    <?= $errors['password'] ?>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">

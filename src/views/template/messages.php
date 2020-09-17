@@ -1,18 +1,35 @@
 <?php 
 
+/* Todos os erros estão guardados na variavel,
+   evitando problemas de renderização, necessitando importar o arquivo na view */
+$errors = [];
 // Aqui será a lógica para imprimir as mensagens em tela
 if($exception){
     $message = [
         'type' => 'error',
         'message' => $exception->getMessage()
     ];
+
+    if(get_class($exception) === 'ValidationException'){
+        $errors = $exception->getErrors();
+    }
+}
+
+
+// Verificação do tipo de mensagem
+$alertType = '';
+if($message['type'] === 'error'){
+    $alertType = 'danger';
+} else {
+    $alertType = 'success';
 }
 
 ?>
 
 <?php if($message): ?>
     
-<div class="alert alert-danger my-3" role="alert">
+<div role="alert"
+class="alert my-3 alert-<?= $alertType ?>">
     <?= $message['message'] ?>
 </div>
 
