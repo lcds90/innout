@@ -1,3 +1,3 @@
-<div class="bg-dark">
+<main class="content">
 <h1>Okay!</h1>
-</div>
+</main>
