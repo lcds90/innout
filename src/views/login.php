@@ -1,4 +1,4 @@
-<?= ini_set('display_errors', 0); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,7 +29,7 @@
                 <?php include(TEMPLATE_PATH . '/messages.php') ?>
                 <div class="form-group">
                     <label for="email">E-mail</label>                  <!-- Aqui é carregado o parametro que vem do controller, através da função loadView -->
-                    <input type="email" name="email" id="email" value="<?= $email ?>"
+                    <input type="email" name="email" id="email" value="<?= isset($email) ? $email : '' ?>"
                     class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
                     placeholder="Informe o e-mail" autofocus="true" autocomplete="off">
                     <div class="invalid-feedback">
