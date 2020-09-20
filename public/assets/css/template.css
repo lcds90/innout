@@ -152,5 +152,12 @@ body {
 
 .footer {
     grid-area: footer;
-    
+    display:flex;
+    align-items:center;
+    justify-content: flex-end;
+    padding-right: 25px;
+    background-color:#222;
+    color:#ddf;
+    font-size:1.25rem
+
 }
