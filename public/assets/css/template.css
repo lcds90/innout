@@ -178,7 +178,40 @@ body {
 }
 
 .content {
-    grid-area: content;   
+    grid-area: content; 
+    background-color: #fff;
+    margin:20px;  
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0px 0px 15px 0px rgba(0,0,0,.2)
+}
+
+.content .content-title {
+    display:flex;
+    align-items:center;
+    padding-bottom:10px;
+    border-bottom:1px solid #ccc;
+}
+
+.content .content-title icon {
+    font-size: 3rem;
+}
+
+.content .content-title h1 {
+    font-weight:300;
+    font-size:1.5rem;
+    color:#444;
+    margin:0;
+}
+
+.content .content-title h2 {
+    color:#888;
+    font-weight:200;
+    font-size:1.4rem;
+}
+
+.content .record {
+    font-size:1.5rem;
 }
 
 .footer {

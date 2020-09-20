@@ -5,6 +5,7 @@ sendo a porta de entrada e o mesmo implementa lógica
 para saber se é o view, model que serão interagidos */
 
 loadModel('Login');
+session_start();
 $exception = null;
 
  // Verifica se usuário está logado através de requisição que vem do formulário
@@ -12,6 +13,7 @@ if(count($_POST) > 0){
     $login = new Login($_POST);
     try{
         $user = $login->checkLogin();
+        $_SESSION['user'] = $user;
         header("Location: day_records.php");
     } catch(AppException $e){
         $exception = $e;
