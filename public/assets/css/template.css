@@ -1,3 +1,5 @@
+/* O Grid é só feito no pai, não é possível realizar ele grid dentro de grid, usado flexbox */
+
 body {
     width:100vw;
     height:100vh;
@@ -23,12 +25,91 @@ body {
 
 .header {
     grid-area: header;
-    background-color:red;
+    display:flex;
+    background-color:rgb(155, 71, 180);
+    align-items: center;
+    z-index: 10;
+    box-shadow:
+        0 2px 4px -1px rgba(0,0,0,.2),
+        0 4px 4px 0px rgba(0,0,0,.14),
+        0 1px 10px 0px rgba(0,0,0,.12),
+}
+.header .logo {
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    font-size: 2rem;
+    background-color:grey;
+    flex-basis:200px;
+    height: 100%;
+}
+
+.header .spacer {
+    flex:1;
+}
+
+.header .dropdown {
+    position:relative;
+    height:100%;
+}
+
+.header .dropdown-button {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+    color:white;
+    font-size:1.1rem;
+    cursor:pointer;
+    font-weight:300;
+}
+
+.header .dropdown-content{
+    display:none;
+    position:absolute;
+    min-width:100%;
+    background-color: #f9f9f9;
+    padding: 15px 5px;
+    z-index:100;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2)
+}
+
+.header .dropdown:hover{
+    display:block;
+    background-color: rgba(0,0,0,.1);
+}
+.header .dropdown:hover .dropdown-content{
+    display:block;
+}
+
+.header .dropdown-content ul {
+    list-style-type:none;
+    padding-left:0;
+    margin-bottom:0;
+}
+
+.header .dropdown-content a {
+    display:flex;
+    align-items: center;
+    padding:7px;
+    font-size:1.1rem;
+    text-decoration:none;
+    color: #222;
+}
+
+.header .dropdown-content a:hover {
+    background-color:rgba(0,0,0,.05)
+}
+
+.header .menu-toggle {
+    color:white;
+    cursor:pointer;
+    filter:drop-shadow(0px 10px 5px rgba(0,0,0,.2));
 }
 
 .sidebar {
     grid-area: sidebar; 
-    background-color:green;  
+     
 }
 
 .hide-sidebar .sidebar {
@@ -36,10 +117,9 @@ body {
 }
 .content {
     grid-area: content;   
-    background-color:yellow
 }
 
 .footer {
     grid-area: footer;
-    background:blue
+    
 }
