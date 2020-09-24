@@ -4,7 +4,7 @@
    evitando problemas de renderização, necessitando importar o arquivo na view */
 $errors = [];
 // Aqui será a lógica para imprimir as mensagens em tela
-if ($exception) {
+if (isset($exception)) {
     $message = [
         'type' => 'error',
         'message' => $exception->getMessage()
