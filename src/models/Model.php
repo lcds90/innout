@@ -60,6 +60,20 @@ class Model {
         }
     }
 
+    // lembrando que esse método será acessivel a partir da instancia, e é necessario pegar o atributo do objeto aonde a função é chamada
+    // implode irá transformar as colunas que vem do array em string do sql
+    public function save(){
+        // o foreach tem como função de passar por cada coluna com seus valores associados na ordem correta
+        $sql = "INSERT INTO " . static::$tableName . " ("
+        . implode(",", static::$columns) . ") VALUES (";
+        foreach(static::$columns as $col){
+            $sql .= static::getFormatedValue($this->$col) . ",";
+        }
+        $sql[strlen($sql) - 1] = ')';
+        $id = Database::executeSQL($sql);
+        $this->id = $id;
+    }
+
     private static function getFilters($filters){
         $sql = '';
         if(count($filters) > 0){
