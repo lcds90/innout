@@ -1,7 +1,7 @@
 <?php 
 
 class WorkingHours extends Model {
-    protected static $tableName = 'users';
+    protected static $tableName = 'working_hours';
     protected static $columns = [
         'id',
         'user_id',

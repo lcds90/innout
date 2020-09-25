@@ -27,6 +27,10 @@ class Model {
         $this->values[$key] = $value;
     }
 
+    public function getValues() {
+        return $this->values;
+    }
+
     // função para retornar valores vindo de função que gera modelo de SQL
     public static function getOne($filters = [], $columns = '*'){
         $class = get_called_class();
