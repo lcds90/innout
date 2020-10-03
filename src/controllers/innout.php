@@ -8,7 +8,12 @@ $user = $_SESSION['user'];
 $user = $_SESSION['user'];
 $records = WorkingHours::loadFromUserAndDate($user->id, date("Y-m-d"));
 
-$currentTime = strftime("%H:%M:%S", time());
+try {
+    $currentTime = strftime("%H:%M:%S", time());
+    $records->innout($currentTime);
+    addSuccessMsg("Ponto inserido com sucesso!");
+} catch(AppException $e) {
+    addErrorMsg($e->getMessage());
+}
 
-$records->innout($currentTime);
 header('Location: day_records.php');
