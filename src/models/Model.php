@@ -66,7 +66,7 @@ class Model {
 
     // lembrando que esse método será acessivel a partir da instancia, e é necessario pegar o atributo do objeto aonde a função é chamada
     // implode irá transformar as colunas que vem do array em string do sql
-    public function save(){
+    public function insert(){
         // o foreach tem como função de passar por cada coluna com seus valores associados na ordem correta
         $sql = "INSERT INTO " . static::$tableName . " ("
         . implode(",", static::$columns) . ") VALUES (";
