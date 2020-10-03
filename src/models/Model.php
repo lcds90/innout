@@ -78,6 +78,17 @@ class Model {
         $this->id = $id;
     }
 
+    public function update(){
+        // para cada coluna esta interpolando o valor de $col pegando o valor formatado e passando a coluna, separando cada uma com o sql do SET
+        $sql = "UPDATE " . static::$tableName . " SET ";
+        foreach(static::$columns as $col){
+            $sql .= " ${col} = " . static::getFormatedValue($this->$col) . ",";
+        }
+        $sql[strlen($sql) - 1]= ' ';
+        $sql .= "WHERE id = {$this->id}";
+        Database::executeSQL($sql);
+    }
+
     private static function getFilters($filters){
         $sql = '';
         if(count($filters) > 0){
