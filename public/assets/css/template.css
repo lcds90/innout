@@ -1,7 +1,7 @@
 /* O Grid é só feito no pai, não é possível realizar ele grid dentro de grid, usado flexbox */
 
 body {
-    width:100vw;
+    width:98.7vw;
     height:100vh;
     display:grid;
     grid-template-columns: 200px 1fr;

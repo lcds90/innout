@@ -30,4 +30,11 @@
         </div>
     </div>
 
+    <form class="mt-0" action="innout.php" method="post">
+<div class="input-group no-border">
+<input class="form-control" type="text" name="forcedTime" placeholder="Informe a hora para simular batimento">
+        <button class="btn btn-danger ml-2">Simular Ponto</button>
+
+</div>
+</form>
 </main>
